@@ -37,8 +37,8 @@ public class BuscadorService {
 	/*Añadir un nuevo recurso al servicio que permita eliminar un resultado a partir
 	de la url recibida como parámetro. El recurso devolverá una lista con todos los
 	resultados que queden después de la eliminación */
-	public List<Resultado> eliminar(String enlace) {
-		resultados.removeIf(p->p.getEnlace().equals(enlace));
+	public List<Resultado> eliminar(String url) {
+		resultados.removeIf(p->p.getUrl().equals(url));
 		return resultados;
 	
 			

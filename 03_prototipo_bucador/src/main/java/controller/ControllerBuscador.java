@@ -36,8 +36,8 @@ public class ControllerBuscador {
 	@DELETE
 	@Path("/eliminar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Resultado> eliminar(@FormParam ("enlace") String enlace) {
-		return buscadorService.eliminar(enlace);
+	public List<Resultado> eliminar(@FormParam ("url") String url) {
+		return buscadorService.eliminar(url);
 	}
 	/*     {"enlace": "http://www.mislibros.es/",
         "tematica": "libros",

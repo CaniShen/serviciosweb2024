@@ -1,23 +1,23 @@
 package model;
 
 public class Resultado {
-	private String enlace;
+	private String url;
 	private String tematica;
 	private String descripcion;
-	public Resultado(String enlace, String tematica, String descripcion) {
+	public Resultado(String url, String tematica, String descripcion) {
 		super();
-		this.enlace = enlace;
+		this.url = url;
 		this.tematica = tematica;
 		this.descripcion = descripcion;
 	}
 	public Resultado() {
 		super();
 	}
-	public String getEnlace() {
-		return enlace;
+	public String getUrl() {
+		return url;
 	}
-	public void setEnlace(String enlace) {
-		this.enlace = enlace;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	public String getTematica() {
 		return tematica;

@@ -20,44 +20,49 @@ Los recursos expuestos serán:
 -Listado: se devolverá una lista con todos los cursos existentes */
 
 public class CursosService {
-	static List<Curso> cursos=new ArrayList<>(List.of(
-			new Curso("java","lenguaje de programacion", 150, 200.0),
-			new Curso("python","lenguaje de programacion",100, 150),
-			new Curso("ingles", "idioma",80,95.8)
-			)); 
-	
-	
-	public void alta(Curso curso) {
-		cursos.add(curso);
+	private static List<Curso> cursos = new ArrayList<>(List.of(
+			new Curso("java", "lenguaje de programacion", 150, 200.0),
+			new Curso("python", "lenguaje de programacion", 100, 150), 
+			new Curso("ingles", "idiomas", 80, 95.8),
+			new Curso("Java 21","Programación",100,200),
+			new Curso("Inglés","idiomas",200,340),
+			new Curso("Francés","idiomas",150,320),
+			new Curso("Python","Programación",60,110)
+			));
+
+	public boolean alta(Curso curso) {
+		if (buscarCurso(curso.getNombre())==null) {
+			cursos.add(curso);
+			return true;
+		}
+		return false;
 	}
-	
+
 	public void eliminar(String nombre) {
-		cursos.removeIf(c->c.getNombre().equals(nombre));
+		cursos.removeIf(c -> c.getNombre().equals(nombre));
 	}
-	
-	public void modificarDatos(String nombre, String area, int duracion, double precio ) {
-			for(Curso c:cursos) {
-						if(c.getNombre().equals(nombre)) {
-							c.setArea(area);
-							c.setDuracion(duracion);
-							c.setPrecio(precio);
-							break;// salimos del bucle for, ya que no necesitamos que se recorre más. ya hemos encontrado el curso y modicado.
-						}
+
+	public void modificarDatos(Curso curso) {
+		for (Curso c : cursos) {
+			if (c.getNombre().equals(curso.getNombre())) {
+				c.setArea(curso.getArea());
+				c.setDuracion(curso.getDuracion());
+				c.setPrecio(curso.getPrecio());
+				break;// salimos del bucle for, ya que no necesitamos que se recorre más. ya hemos
+						// encontrado el curso y modicado.
+			}
 		}
 	}
-	
-	public List <Curso> buscarCurso(String nombre) {
-		return cursos.stream().
-				filter(c->c.getNombre().equals(nombre))
-				.toList();
-				
+
+	public Curso buscarCurso(String nombre) {
+		return cursos.stream().filter(c -> c.getNombre().equals(nombre)).findFirst().orElse(null);
+
 	}
-	
+
 	public List<Curso> devuelveCursos() {
-		
+
 		return cursos;
-		
+
 	}
-	
 
 }
