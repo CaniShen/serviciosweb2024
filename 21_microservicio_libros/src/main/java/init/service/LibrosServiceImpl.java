@@ -20,7 +20,7 @@ public class LibrosServiceImpl implements LibrosService {
 
 	@Override
 	public boolean alta(LibroDto libro) {
-		if(!librosDao.findById(libro.getIsbn()).isEmpty()) {
+		if(librosDao.findById(libro.getIsbn()).isEmpty()) {
 			librosDao.save(mapeador.libroDtoToEntity(libro));
 			return true;
 		}

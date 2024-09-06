@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>12_microservicio_crud_cursos</artifactId>
+	<artifactId>18_microservicio_cursos_securizado</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>12_microservicio_crud_cursos</name>
+	<name>18_microservicio_cursos_securizado</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
