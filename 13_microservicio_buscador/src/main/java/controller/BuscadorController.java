@@ -27,6 +27,7 @@ public class BuscadorController {
 	}
 	@PostMapping(value="alta",produces = MediaType.TEXT_PLAIN_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String alta (@RequestBody ResultadoDto resultado) {
+		System.out.println("!!!!!!!!!!!!!!!!alta de "+resultado.getUrl());
 		return String.valueOf(buscadorService.agregar(resultado));
 	}
 	@GetMapping(value="/buscar/{tematica}",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,6 +35,10 @@ public class BuscadorController {
 	
 		return buscadorService.buscar(tematica);
 	
+	}
+	@GetMapping(value="/buscar/{url}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResultadoDto buscarPorUrl(@PathVariable("url")String url) {
+		return buscadorService.buscarPorUrl(url);
 	}
 
 }

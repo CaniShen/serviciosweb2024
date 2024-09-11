@@ -32,6 +32,7 @@ public class PaisesServiceImpl implements PaisesService {
 					.toList();
 			
 		}catch(HttpClientErrorException ex) {
+			ex.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
@@ -49,6 +50,7 @@ public class PaisesServiceImpl implements PaisesService {
 						.toList();
 			
 		}catch(HttpClientErrorException ex) {
+			
 			throw new RuntimeException();
 		}
 	}
