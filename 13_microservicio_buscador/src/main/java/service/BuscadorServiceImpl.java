@@ -40,7 +40,8 @@ public class BuscadorServiceImpl implements BuscadorService {
 	@Override
 	public ResultadoDto buscarPorUrl(String url) {
 		Resultado r=buscadorDao.findByUrl(url);
-		return r!=null?mapeador.resultadoEntityToDto(r):null;
+		return r!=null?mapeador.resultadoEntityToDto(r):null; //如果 r 不为 null（即找到与给定 url 对应的记录），则调用 mapeador.resultadoEntityToDto(r) 方法，将 r 对象（可能是数据库实体 Resultado）转换为 ResultadoDto 并返回。
+															 //	如果 r 为 null（即没有找到与该 url 对应的记录），则返回 null。
 		
 	}
 
