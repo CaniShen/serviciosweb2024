@@ -1,18 +1,12 @@
-package entities;
+package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-@Entity
-@Table(name="clientes")
-public class Cliente {
-	@Id
+public class ClienteDto {
 	private	String usuario;
 	private String password;
 	private String direccion;
 	private String tarjeta;
 	private String dni;
-	public Cliente(String usuario, String password, String direccion, String tarjeta, String dni) {
+	public ClienteDto(String usuario, String password, String direccion, String tarjeta, String dni) {
 		super();
 		this.usuario = usuario;
 		this.password = password;
@@ -20,11 +14,9 @@ public class Cliente {
 		this.tarjeta = tarjeta;
 		this.dni = dni;
 	}
-	
-	public Cliente() {
+	public ClienteDto() {
 		super();
 	}
-
 	public String getUsuario() {
 		return usuario;
 	}
