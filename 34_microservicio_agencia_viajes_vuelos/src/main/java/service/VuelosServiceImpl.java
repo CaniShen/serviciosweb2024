@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.VuelosDao;
 import entities.Vuelo;
+import jakarta.transaction.Transactional;
 import model.VueloDto;
 import utilidades.Mapeador;
 @Service
@@ -22,6 +23,7 @@ public class VuelosServiceImpl implements VuelosService {
 	}
 
 	@Override
+
 	public List<VueloDto> buscarVuelosPorPlazasDestino(int plazas, String destino) {
 		return vuelosDao.findByPlazasDestino(plazas, destino)//List<Vuelo>
 				.stream()
@@ -31,15 +33,21 @@ public class VuelosServiceImpl implements VuelosService {
 	}
 
 	@Override
-	public void actualizarVuelo(VueloDto vuelo) {
-		VueloDto vueloActualizado= buscarPorId(vuelo.getIdvuelo());
-		if (vueloActualizado !=null) {
-			vuelosDao.updatVuelo(mapeador.vueloDtoToEntity(vueloActualizado));
+
+	public boolean actualizarVuelo(int idVuelo, int plazas) {
+		VueloDto vueloActualizado = buscarPorId(idVuelo);
+		if (vueloActualizado != null) {
+			if (vueloActualizado.getPlazas() >= plazas) {
+				vuelosDao.updateVuelo(idVuelo, plazas);
+				return true;
+			}
+
 		}
-	
+		return false;
 	}
 
 	@Override
+
 	public VueloDto buscarPorId(int id) {
 	/*	Vuelo vueloAux= vuelosDao.findById(id)
 				.orElse(null);

@@ -7,7 +7,7 @@ import model.VueloDto;
 public interface VuelosService {
 	List<VueloDto> buscarVuelosPorPlazasDestino(int plazas, String destino);
 	
-	void actualizarVuelo(VueloDto vuelo);
+	boolean actualizarVuelo(int idVuelo,int plazas);
 	
 	VueloDto buscarPorId(int id);
 

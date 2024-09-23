@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.VueloDto;
@@ -30,9 +30,9 @@ public class VuelosController {
 		return vuelosService.buscarVuelosPorPlazasDestino(plazas, destino);
 	}
 
-	@PutMapping(value = "actualizarvuelo", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void actualizarVuelo(@RequestBody VueloDto vuelo) {
-		vuelosService.actualizarVuelo(vuelo);
+	@PutMapping(value = "/actualizarvuelo", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String actualizarVuelo(@RequestParam("idVuelo") int idVuelo, @RequestParam ("plazas")int plazas) {
+		return String.valueOf(vuelosService.actualizarVuelo(idVuelo, plazas));
 	}
 	
 	@GetMapping(value = "/buscarvuelo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

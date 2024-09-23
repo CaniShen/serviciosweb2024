@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import dao.ClientesDao;
 import entities.Cliente;
+import jakarta.transaction.Transactional;
 import model.ClienteDto;
 import utilidades.Mapeador;
 
@@ -19,6 +20,7 @@ public class ClientesServiceImpl implements ClientesService {
 	}
 
 	@Override
+	@Transactional
 	public ClienteDto autenticar(String usuario, String password) {
 
 		Cliente cliente = clientesDao.findByUsuario(usuario);
@@ -29,6 +31,7 @@ public class ClientesServiceImpl implements ClientesService {
 	}
 
 	@Override
+	@Transactional
 	public void altaUsuario(ClienteDto cliente) {
 		Cliente clienteEntity= mapeador.clienteDtoToEntity(cliente);
 		clientesDao.save(clienteEntity);
@@ -36,6 +39,7 @@ public class ClientesServiceImpl implements ClientesService {
 	}
 
 	@Override
+	@Transactional
 	public ClienteDto buscarCliente(String usuario) {
 		Cliente clienteAux=clientesDao.findByUsuario(usuario);
 		if(clienteAux != null) {

@@ -1,7 +1,5 @@
 package model;
 
-import java.time.LocalDate;
-
 public class VueloDto {
 	private int idvuelo;
 	private String company;
