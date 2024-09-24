@@ -9,5 +9,5 @@ import entities.Reserva;
 
 public interface ReservasDao extends JpaRepository<Reserva, Integer> {
 	
-	List<Reserva> findByCliente(String usuario);
+	List<Reserva> findByUsuario(String usuario);
 }

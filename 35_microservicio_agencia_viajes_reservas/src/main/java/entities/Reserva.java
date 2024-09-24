@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,12 +15,12 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idReserva;
 	@ManyToOne
-	private List<Hotel> hotel;
+	private Hotel hotel;
 	@ManyToOne
-	private List<Vuelo> vuelo;
+	private Vuelo vuelo;
 	private double precio;
 	private String usuario;
-	public Reserva(int idReserva, List<Hotel> hotel, List<Vuelo> vuelo, double precio, String usuario) {
+	public Reserva(int idReserva, Hotel hotel, Vuelo vuelo, double precio, String usuario) {
 		super();
 		this.idReserva = idReserva;
 		this.hotel = hotel;
@@ -29,22 +28,25 @@ public class Reserva {
 		this.precio = precio;
 		this.usuario = usuario;
 	}
+	public Reserva() {
+		super();
+	}
 	public int getIdReserva() {
 		return idReserva;
 	}
 	public void setIdReserva(int idReserva) {
 		this.idReserva = idReserva;
 	}
-	public List<Hotel> getHotel() {
+	public Hotel getHotel() {
 		return hotel;
 	}
-	public void setHotel(List<Hotel> hotel) {
+	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	public List<Vuelo> getVuelo() {
+	public Vuelo getVuelo() {
 		return vuelo;
 	}
-	public void setVuelo(List<Vuelo> vuelo) {
+	public void setVuelo(Vuelo vuelo) {
 		this.vuelo = vuelo;
 	}
 	public double getPrecio() {
@@ -59,5 +61,6 @@ public class Reserva {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
 	
 }
