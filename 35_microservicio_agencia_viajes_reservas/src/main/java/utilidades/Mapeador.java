@@ -34,7 +34,7 @@ public class Mapeador {
 				reserva.getUsuario());
 	}
 	public Vuelo vueloDtoToEntity(VueloDto vuelo) {
-		return new Vuelo(vuelo.getIdvuelo(),
+		return new Vuelo(vuelo.getIdVuelo(),
 				vuelo.getCompany(),
 				vuelo.getFecha(),
 				vuelo.getPrecio(),
@@ -54,7 +54,8 @@ public class Mapeador {
 
 	
 	public HotelDto hotelEntityToDto(Hotel hotel) {
-		return new HotelDto(hotel.getNombre(),
+		return new HotelDto(hotel.getIdHotel(),
+				hotel.getNombre(),
 				hotel.getCategoria(),
 				hotel.getPrecio(),
 				hotel.getDisponible(),
@@ -62,7 +63,7 @@ public class Mapeador {
 	}
 	
 	public Hotel hotelDtoToEntity(HotelDto hotel) {
-		return new Hotel(0,
+		return new Hotel(hotel.getIdHotel(),
 				hotel.getNombre(),
 				hotel.getCategoria(),
 				hotel.getPrecio(),

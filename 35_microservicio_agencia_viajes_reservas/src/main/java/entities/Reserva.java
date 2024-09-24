@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -15,8 +16,10 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idReserva;
 	@ManyToOne
+	@JoinColumn(name="hotel",referencedColumnName = "idHotel")
 	private Hotel hotel;
 	@ManyToOne
+	@JoinColumn(name="vuelo",referencedColumnName = "idVuelo")
 	private Vuelo vuelo;
 	private double precio;
 	private String usuario;

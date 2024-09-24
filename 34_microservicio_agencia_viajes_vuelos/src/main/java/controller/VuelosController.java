@@ -30,9 +30,9 @@ public class VuelosController {
 		return vuelosService.buscarVuelosPorPlazasDestino(plazas, destino);
 	}
 
-	@PutMapping(value = "/actualizarvuelo", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String actualizarVuelo(@RequestParam("idVuelo") int idVuelo, @RequestParam ("plazas")int plazas) {
-		return String.valueOf(vuelosService.actualizarVuelo(idVuelo, plazas));
+	@PutMapping(value = "/actualizarvuelo", produces = MediaType.APPLICATION_JSON_VALUE)
+	public boolean actualizarVuelo(@RequestParam("idVuelo") int idVuelo, @RequestParam ("plazas")int plazas) {
+		return vuelosService.actualizarVuelo(idVuelo, plazas);
 	}
 	
 	@GetMapping(value = "/buscarvuelo/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,15 +1,15 @@
 package model;
 
 public class VueloDto {
-	private int idvuelo;
+	private int idVuelo;
 	private String company;
 	private String fecha;
 	private double precio;
 	private int plazas;
 	private String destino;
-	public VueloDto(int idvuelo, String company, String fecha, double precio, int plazas, String destino) {
+	public VueloDto(int idVuelo, String company, String fecha, double precio, int plazas, String destino) {
 		super();
-		this.idvuelo = idvuelo;
+		this.idVuelo = idVuelo;
 		this.company = company;
 		this.fecha = fecha;
 		this.precio = precio;
@@ -19,11 +19,11 @@ public class VueloDto {
 	public VueloDto() {
 		super();
 	}
-	public int getIdvuelo() {
-		return idvuelo;
+	public int getIdVuelo() {
+		return idVuelo;
 	}
 	public void setIdvuelo(int idvuelo) {
-		this.idvuelo = idvuelo;
+		this.idVuelo = idvuelo;
 	}
 	public String getCompany() {
 		return company;

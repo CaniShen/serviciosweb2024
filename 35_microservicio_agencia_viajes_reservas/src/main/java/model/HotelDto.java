@@ -1,13 +1,15 @@
 package model;
 
 public class HotelDto {
+	private int idHotel;
 	private String nombre;
 	private int categoria;
 	private double precio;
 	private int disponible;
 	private String localizacion;
-	public HotelDto(String nombre, int categoria, double precio, int disponible, String localizacion) {
+	public HotelDto(int idHotel, String nombre, int categoria, double precio, int disponible, String localizacion) {
 		super();
+		this.idHotel = idHotel;
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.precio = precio;
@@ -16,6 +18,12 @@ public class HotelDto {
 	}
 	public HotelDto() {
 		super();
+	}
+	public int getIdHotel() {
+		return idHotel;
+	}
+	public void setIdHotel(int idHotel) {
+		this.idHotel = idHotel;
 	}
 	public String getNombre() {
 		return nombre;
@@ -47,5 +55,6 @@ public class HotelDto {
 	public void setLocalizacion(String localizacion) {
 		this.localizacion = localizacion;
 	}
+	
 	
 }
