@@ -19,11 +19,11 @@ public class Application {
 
 	@Bean
 	public RestClient restClientHotel() {
-		return RestClient.builder().baseUrl("http://localhost:9001/hoteles").build();
+		return RestClient.builder().baseUrl("http://servicio-hoteles/hoteles").build();
 	}
 	
 	@Bean
 	public RestClient restClientVuelo() {
-		return RestClient.builder().baseUrl("http://localhost:9003/vuelos").build();
+		return RestClient.builder().baseUrl("http://servicio-vuelos/vuelos").build();
 	}
 }
