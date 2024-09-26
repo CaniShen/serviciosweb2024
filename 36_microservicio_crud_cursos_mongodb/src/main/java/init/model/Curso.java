@@ -2,7 +2,7 @@ package init.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "cursos")// nombre de la coleccion
+@Document(collection = "cursos")// nombre de la coleccion
 public class Curso {
 	private String id;
 	private String curso;

@@ -19,10 +19,11 @@ public class CursosServiceImpl implements CursosService {
 	@Override
 	public boolean guardarCurso(Curso curso) {
 		if(cursosDao.findByCurso(curso.getCurso())!=null) {
-			cursosDao.save(curso);
-			return true;
+			
+			return false;
 		}
-		return false;
+		cursosDao.save(curso);
+		return true;
 	}
 
 	@Override
